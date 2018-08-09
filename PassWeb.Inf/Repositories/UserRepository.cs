@@ -1,5 +1,5 @@
 ﻿using PassWeb.Domain.Models;
-using PassWeb.Infrastructure.IRepositories;
+using PassWeb.Interfaces.IRepositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;

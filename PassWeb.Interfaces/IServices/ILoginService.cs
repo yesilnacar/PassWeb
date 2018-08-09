@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace PassWeb.Interfaces
+namespace PassWeb.Interfaces.IServices
 {
     public interface ILoginService
     {

@@ -1,6 +1,6 @@
-﻿using PassWeb.Infrastructure.IRepositories;
+﻿using PassWeb.Interfaces.IRepositories;
+using PassWeb.Interfaces.IServices;
 using PassWeb.Infrastructure.Repositories;
-using PassWeb.Interfaces;
 using PassWeb.Services;
 using System.Web.Mvc;
 using Unity;

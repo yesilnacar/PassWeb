@@ -1,5 +1,5 @@
 ﻿using PassWeb.Domain.Models;
-using PassWeb.Interfaces;
+using PassWeb.Interfaces.IServices;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 

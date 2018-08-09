@@ -1,7 +1,7 @@
 ﻿using PassWeb.Domain.Models;
 using System.Collections.Generic;
 
-namespace PassWeb.Infrastructure.IRepositories
+namespace PassWeb.Interfaces.IRepositories
 {
     public interface IUserRepository
     {

@@ -1,8 +1,8 @@
 ﻿using Moq;
 using NUnit.Framework;
 using PassWeb.Domain.Models;
-using PassWeb.Infrastructure.IRepositories;
-using PassWeb.Interfaces;
+using PassWeb.Interfaces.IRepositories;
+using PassWeb.Interfaces.IServices;
 using PassWeb.Services;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,6 +1,6 @@
 ﻿using PassWeb.Domain.Models;
-using PassWeb.Infrastructure.IRepositories;
-using PassWeb.Interfaces;
+using PassWeb.Interfaces.IRepositories;
+using PassWeb.Interfaces.IServices;
 using System;
 using System.Security.Cryptography;
 using System.Text;

@@ -1,6 +1,6 @@
 ﻿using PassWeb.Domain.Models;
 
-namespace PassWeb.Interfaces
+namespace PassWeb.Interfaces.IServices
 {
     public interface IUserService
     {
