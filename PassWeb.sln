@@ -3,9 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PassWeb", "PassWeb\PassWeb.csproj", "{F1A52EC7-1008-418A-ADD4-2774E96E591C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PassWeb.UI", "PassWeb\PassWeb.UI.csproj", "{F1A52EC7-1008-418A-ADD4-2774E96E591C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PassWeb.Tests", "PassWeb.Tests\PassWeb.Tests.csproj", "{34E1E47B-6738-4C29-A066-A05420C1D712}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PassWeb.Services", "PassWeb.Services\PassWeb.Services.csproj", "{CDE1E142-0490-4AD4-9F93-531CD8BC4CC2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PassWeb.Interfaces", "PassWeb.Interfaces\PassWeb.Interfaces.csproj", "{F6ED802D-DBE6-4527-97FA-ABF441CA1566}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PassWeb.Infrastructure", "PassWeb.Inf\PassWeb.Infrastructure.csproj", "{E353C459-F808-41C1-9F71-DCC0CE5CE9B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PassWeb.Domain", "Domain\PassWeb.Domain.csproj", "{11FF098E-BA85-4439-B8D1-E97497079E69}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +29,22 @@ Global
 		{34E1E47B-6738-4C29-A066-A05420C1D712}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{34E1E47B-6738-4C29-A066-A05420C1D712}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{34E1E47B-6738-4C29-A066-A05420C1D712}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDE1E142-0490-4AD4-9F93-531CD8BC4CC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDE1E142-0490-4AD4-9F93-531CD8BC4CC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDE1E142-0490-4AD4-9F93-531CD8BC4CC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDE1E142-0490-4AD4-9F93-531CD8BC4CC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6ED802D-DBE6-4527-97FA-ABF441CA1566}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6ED802D-DBE6-4527-97FA-ABF441CA1566}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6ED802D-DBE6-4527-97FA-ABF441CA1566}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6ED802D-DBE6-4527-97FA-ABF441CA1566}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E353C459-F808-41C1-9F71-DCC0CE5CE9B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E353C459-F808-41C1-9F71-DCC0CE5CE9B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E353C459-F808-41C1-9F71-DCC0CE5CE9B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E353C459-F808-41C1-9F71-DCC0CE5CE9B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11FF098E-BA85-4439-B8D1-E97497079E69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11FF098E-BA85-4439-B8D1-E97497079E69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11FF098E-BA85-4439-B8D1-E97497079E69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11FF098E-BA85-4439-B8D1-E97497079E69}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

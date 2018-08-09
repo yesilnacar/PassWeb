@@ -1,26 +1,36 @@
-﻿using AutoMapper;
-using PassWeb.Dtos;
-using PassWeb.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using PassWeb.Domain.Models;
+using PassWeb.Interfaces;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace PassWeb.Controllers
 {
     public class AccountController : Controller
     {
-        private ApplicationDbContext _context;
+        private readonly IUserService userService;
+        private readonly ILoginService loginService;
 
-        public AccountController()
+        public AccountController(IUserService _userService, ILoginService _loginService)
         {
-            _context = new ApplicationDbContext();
+            userService = _userService;
+            loginService = _loginService;
         }
 
         public ActionResult Login()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(LoginViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                if (loginService.AreValidUserCredentials(model.UserName, model.Password))
+                    return RedirectToAction("Index", "Home");
+            }
+
+            return View(model);
         }
 
         public ActionResult Register()
@@ -33,17 +43,44 @@ namespace PassWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new UserDto()
-                {
-                    UserName = model.UserName,
-                    Password = model.Password,
-                    EMailAddress = model.Email
-                };
+                userService.Add(model);
 
-                Mapper.Map()
+                return RedirectToAction("Index", "Home");
             }
 
             return View(model);
+        }
+
+        [AllowAnonymous]
+        public ActionResult ResetPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> ResetPassword(ResetPasswordViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = userService.Find(model.Email);
+                if (user == null)
+                    return View("ResetPasswordConfirmation");
+
+                //string token = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
+                //var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = token }, protocol: Request.Url.Scheme);
+                //await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                return RedirectToAction("ForgotPasswordConfirmation", "Account");
+            }
+
+            return View(model);
+        }
+
+        [AllowAnonymous]
+        public ActionResult ResetPasswordConfirmation()
+        {
+            return View();
         }
     }
 }

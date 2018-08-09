@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+using System.Security.Cryptography;
+using System.Text;
 
-namespace PassWeb.Dtos
+namespace PassWeb.Domain.Models
 {
-    public class UserDto
+    public class User
     {
         public int Id { get; set; }
 
@@ -18,8 +17,10 @@ namespace PassWeb.Dtos
         [EmailAddress]
         public string EMailAddress { get; set; }
 
-        [Required]
-        [DataType(DataType.Password)]
-        public string Password { get; set; }
+        public byte[] Hash { get; set; }
+
+        public string HashedPassword { get; set; }
+
+        public string Salt { get; set; }
     }
 }

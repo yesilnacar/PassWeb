@@ -1,4 +1,4 @@
-namespace PassWeb.Migrations
+namespace PassWeb.Inf.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
@@ -14,7 +14,8 @@ namespace PassWeb.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         UserName = c.String(nullable: false, maxLength: 50),
                         EMailAddress = c.String(nullable: false),
-                        Password = c.String(nullable: false),
+                        Hash = c.Binary(),
+                        HashedPassword = c.String(),
                         Salt = c.String(),
                     })
                 .PrimaryKey(t => t.Id);

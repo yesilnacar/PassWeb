@@ -1,15 +1,15 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace PassWeb.Models
+namespace PassWeb.Domain.Models
 {
     public class LoginViewModel
     {
-        [Display(Name = "Email")]
-        [EmailAddress]
-        public string Email { get; set; }
+        [Display(Name = "User Name")]
+        public string UserName { get; set; }
 
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
+        [MinLength(8, ErrorMessage = "Password must be at least 8 characters.")]
         public string Password { get; set; }
     }
 
@@ -34,5 +34,13 @@ namespace PassWeb.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+    }
+
+    public class ResetPasswordViewModel
+    {
+        [Required]
+        [EmailAddress]
+        [Display(Name = "Email")]
+        public string Email { get; set; }
     }
 }

@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PassWeb.Inf\PassWeb.Infrastructure.csproj" />
+    <ProjectReference Include="..\PassWeb.Interfaces\PassWeb.Interfaces.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,6 +1,4 @@
-﻿using AutoMapper;
-using PassWeb.App_Start;
-using System.Web.Http;
+﻿using PassWeb.App_Start;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
@@ -11,8 +9,7 @@ namespace PassWeb
     {
         protected void Application_Start()
         {
-            Mapper.Initialize(c => c.AddProfile<MappingProfile>());
-            GlobalConfiguration.Configure(WebApiConfig.Register);
+            UnityConfig.RegisterComponents();
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
