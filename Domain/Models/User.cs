@@ -1,7 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.Security.Cryptography;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace PassWeb.Domain.Models
 {

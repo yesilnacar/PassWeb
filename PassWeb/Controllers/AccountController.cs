@@ -1,5 +1,6 @@
 ﻿using PassWeb.Domain.Models;
 using PassWeb.Interfaces.IServices;
+using System.Net.Mail;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
@@ -9,11 +10,15 @@ namespace PassWeb.Controllers
     {
         private readonly IUserService userService;
         private readonly ILoginService loginService;
+        private readonly IPassResetTokenService passResetTokenService;
+        private readonly IEmailService emailService;
 
-        public AccountController(IUserService _userService, ILoginService _loginService)
+        public AccountController(IUserService _userService, ILoginService _loginService, IPassResetTokenService _passResetTokenService, IEmailService _emailService)
         {
             userService = _userService;
             loginService = _loginService;
+            passResetTokenService = _passResetTokenService;
+            emailService = _emailService;
         }
 
         public ActionResult Login()
@@ -60,7 +65,7 @@ namespace PassWeb.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> ResetPassword(ResetPasswordViewModel model)
+        public ActionResult ResetPassword(ResetPasswordViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -68,9 +73,9 @@ namespace PassWeb.Controllers
                 if (user == null)
                     return View("ResetPasswordConfirmation");
 
-                //string token = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
-                //var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = token }, protocol: Request.Url.Scheme);
-                //await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                string token = passResetTokenService.GenerateToken(user);
+                emailService.SendEmail(new MailMessage("app@passweb.com", model.Email, "Password Reset", token));
+
                 return RedirectToAction("ForgotPasswordConfirmation", "Account");
             }
 

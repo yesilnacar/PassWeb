@@ -21,7 +21,7 @@ namespace PassWeb.Tests.Services
             {
                 new User()
                 {
-                    EMailAddress = "o.yesilnacar@emakina.com.tr",
+                    EMailAddress = "foo@app.com",
                     Hash = Encoding.ASCII.GetBytes("0x5F5AAC9B0953CF80D82CFE115E1E8350046FAE17CDCD9FFC3D47E62A4F58428B"),
                     HashedPassword = "X1qsmwlTz4DYLP4RXh6DUARvrhfNzZ/8PUfmKk9YQos=",
                     Id = 2,
